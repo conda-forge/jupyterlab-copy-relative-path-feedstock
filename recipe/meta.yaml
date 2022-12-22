@@ -1,5 +1,5 @@
 {% set name = "jupyterlab-copy-relative-path" %}
-{% set version = "0.0.1" %}
+{% set version = "0.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyterlab_copy_relative_path-{{ version }}.tar.gz
-  sha256: cacf1304a963badd90973862ffd26727e330f192209b792c4f222acca94c88fb
+  sha256: a545ffcc3853c6a141f542a05551e738d55c9ba6338059c76465a04b7cd0ada3
 
 build:
   noarch: python
