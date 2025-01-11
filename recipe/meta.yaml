@@ -6,21 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/jupyterlab_copy_relative_path-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/jupyterlab_copy_relative_path-{{ version }}.tar.gz
   sha256: a545ffcc3853c6a141f542a05551e738d55c9ba6338059c76465a04b7cd0ada3
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python {{ python_min }}
     - jupyter-packaging >=0.10.0,<2
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - jupyterlab ~=3.0
 
 test:
@@ -30,6 +30,7 @@ test:
     - if exist %PREFIX%\\share\\jupyter\\labextensions\\jupyterlab_copy_relative_path\\package.json (exit 0) else (exit 1)  # [win]
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/yamaton/jupyterlab_copy_relative_path
